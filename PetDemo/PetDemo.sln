@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetDemo.Web", "PetDemo.Web\PetDemo.Web.csproj", "{0631DFA0-7078-4725-A2E2-35FE4DB22D83}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetDemo.Model", "PetDemo.Model\PetDemo.Model.csproj", "{3DB22459-17EA-4CEA-B8C8-52F2C2808079}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{0631DFA0-7078-4725-A2E2-35FE4DB22D83}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0631DFA0-7078-4725-A2E2-35FE4DB22D83}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0631DFA0-7078-4725-A2E2-35FE4DB22D83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DB22459-17EA-4CEA-B8C8-52F2C2808079}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DB22459-17EA-4CEA-B8C8-52F2C2808079}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DB22459-17EA-4CEA-B8C8-52F2C2808079}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DB22459-17EA-4CEA-B8C8-52F2C2808079}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
