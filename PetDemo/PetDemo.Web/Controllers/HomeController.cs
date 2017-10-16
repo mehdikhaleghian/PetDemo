@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using PetDemo.Proxy.Interfaces;
@@ -10,12 +11,12 @@ namespace PetDemo.Web.Controllers
     public class HomeController : Controller
     {
         private readonly IPeopleManager _peopleManager;
-        private readonly PeopleViewModelMapper _peopleMapper;
+        private readonly CatViewModelMapper _catMapper;
 
-        public HomeController(IPeopleManager peopleManager, PeopleViewModelMapper peopleMapper)
+        public HomeController(IPeopleManager peopleManager, CatViewModelMapper catMapper)
         {
             _peopleManager = peopleManager;
-            _peopleMapper = peopleMapper;
+            _catMapper = catMapper;
         }
         public IActionResult Index()
         {
@@ -27,11 +28,18 @@ namespace PetDemo.Web.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        public async Task<IActionResult> People()
+        public async Task<IActionResult> Cats()
         {
-            var people = await _peopleManager.GetPeopleAsync();
-            var viewModel = _peopleMapper.Map(people);
-            return View(viewModel);
+            try
+            {
+                var people = await _peopleManager.GetPeopleAsync();
+                var viewModel = _catMapper.Map(people);
+                return View(viewModel);
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("Error");
+            }
         }
     }
 }

@@ -23,7 +23,7 @@ namespace PetDemo.Web
             services.AddHttpClient(Configuration["aglWebApiBaseAddress"]);
             services.AddScoped<IHttpHandler, HttpHandler>();
             services.AddScoped<IPeopleManager, PeopleManager>();
-            services.AddScoped<PeopleViewModelMapper>();
+            services.AddScoped<CatViewModelMapper>();
             services.AddMvc();
         }
 
