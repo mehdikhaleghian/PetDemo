@@ -21,6 +21,7 @@ namespace PetDemo.Web
         {
             services.AddHttpClient(Configuration["aglWebApiBaseAddress"]);
             services.AddTransient<IHttpHandler, HttpHandler>();
+            services.AddTransient<IPeopleManager, PeopleManager>();
             services.AddMvc();
         }
 

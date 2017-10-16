@@ -16,5 +16,10 @@ namespace PetDemo.Proxy
         {
             return await _client.GetAsync(url);
         }
+
+        public HttpResponseMessage Get(string url)
+        {
+            return GetAsync(url).Result;
+        }
     }
 }
