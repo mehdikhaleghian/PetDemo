@@ -3,7 +3,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
-using FluentAssert;
+using FluentAssertions;
 using Moq;
 using NUnit.Framework;
 using PetDemo.Proxy;
@@ -30,10 +30,10 @@ namespace PetDemo.Tests.Isolation.Proxy
         {
             SetupHttpHandler(HttpStatusCode.OK);
             var people = _sut.GetPeople();
-            people.ShouldNotBeNull();
-            people.Length.ShouldBeEqualTo(6);
-            people.First(x => x.Name == "Alice").Pets.Count().ShouldBeEqualTo(2);
-            people.First(x => x.Name == "Steve").Pets.ShouldBeNull();
+            people.Should().NotBeNull();
+            people.Length.Should().Be(6);
+            people.First(x => x.Name == "Alice").Pets.Count().Should().Be(2);
+            people.First(x => x.Name == "Steve").Pets.Should().BeNull();
         }
 
         [Test]
@@ -42,7 +42,7 @@ namespace PetDemo.Tests.Isolation.Proxy
             SetupHttpHandler(HttpStatusCode.RequestTimeout);
             var aggregateException = Assert.Throws<AggregateException>(() => _sut.GetPeople());
             aggregateException.InnerExceptions.Count(x => x.GetType() == typeof(TimeoutException))
-                .ShouldBeEqualTo(1);
+                .Should().Be(1);
         }
 
         private void SetupHttpHandler(HttpStatusCode statusCode)

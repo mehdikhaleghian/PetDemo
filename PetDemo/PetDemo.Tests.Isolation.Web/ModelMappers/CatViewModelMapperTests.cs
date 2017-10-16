@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using FluentAssert;
+using FluentAssertions;
 using NUnit.Framework;
 using PetDemo.Model;
 using PetDemo.Model.Enums;
@@ -22,16 +22,16 @@ namespace PetDemo.Tests.Isolation.Web.ModelMappers
         public void Should_Return_NoResult_If_The_Given_PeopleList_Is_Null()
         {
             var actual = _sut.Map(null);
-            actual.ShouldNotBeNull();
-            actual.NoResult.ShouldBeTrue();
+            actual.Should().NotBeNull();
+            actual.NoResult.Should().BeTrue();
         }
 
         [Test]
         public void Should_Return_NoResult_If_The_Given_PeopleList_Is_Empty()
         {
             var actual = _sut.Map(new Person[0]);
-            actual.ShouldNotBeNull();
-            actual.NoResult.ShouldBeTrue();
+            actual.Should().NotBeNull();
+            actual.NoResult.Should().BeTrue();
         }
 
         [Test]
@@ -45,8 +45,8 @@ namespace PetDemo.Tests.Isolation.Web.ModelMappers
 
                 }
             });
-            actual.ShouldNotBeNull();
-            actual.NoResult.ShouldBeTrue();
+            actual.Should().NotBeNull();
+            actual.NoResult.Should().BeTrue();
         }
 
         [Test]
@@ -62,9 +62,9 @@ namespace PetDemo.Tests.Isolation.Web.ModelMappers
                     }
                 }
             });
-            actual.ShouldNotBeNull();
-            actual.NoResult.ShouldBeFalse();
-            actual.MaleOwnedCats.Length.ShouldBeEqualTo(1);
+            actual.Should().NotBeNull();
+            actual.NoResult.Should().BeFalse();
+            actual.MaleOwnedCats.Length.Should().Be(1);
         }
 
         [Test]
@@ -83,14 +83,14 @@ namespace PetDemo.Tests.Isolation.Web.ModelMappers
                     Pets = new[]{new Pet { Name = "Alex",Type = PetType.Cat}, new Pet { Name = "Bravy",Type = PetType.Cat} }
                 }
             });
-            actual.ShouldNotBeNull();
-            actual.NoResult.ShouldBeFalse();
-            actual.MaleOwnedCats.Length.ShouldBeEqualTo(2);
-            actual.FemaleOwnedCats.Length.ShouldBeEqualTo(2);
-            actual.MaleOwnedCats.First().ShouldBeEqualTo("James");
-            actual.MaleOwnedCats.Last().ShouldBeEqualTo("Max");
-            actual.FemaleOwnedCats.First().ShouldBeEqualTo("Alex");
-            actual.FemaleOwnedCats.Last().ShouldBeEqualTo("Bravy");
+            actual.Should().NotBeNull();
+            actual.NoResult.Should().BeFalse();
+            actual.MaleOwnedCats.Length.Should().Be(2);
+            actual.FemaleOwnedCats.Length.Should().Be(2);
+            actual.MaleOwnedCats.First().Should().Be("James");
+            actual.MaleOwnedCats.Last().Should().Be("Max");
+            actual.FemaleOwnedCats.First().Should().Be("Alex");
+            actual.FemaleOwnedCats.Last().Should().Be("Bravy");
         }
     }
 }

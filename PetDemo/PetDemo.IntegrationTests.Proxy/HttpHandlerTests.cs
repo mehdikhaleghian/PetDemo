@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using FluentAssert;
+using FluentAssertions;
 using NUnit.Framework;
 using PetDemo.Proxy;
 using PetDemo.Tests.Common;
@@ -28,7 +28,7 @@ namespace PetDemo.Tests.Integration.Proxy
             var expected = ResourceReader.ReadAsJsonString(Resources.PeopleJson);
             var t = _sut.GetAsync("people").Result.Content.GetType();
             var actual = _sut.GetAsync("people").Result.Content.ReadAsStringAsync().Result;
-            actual.ShouldBeEqualTo(expected);
+            actual.ShouldBeEquivalentTo(expected);
         }
     }
 }

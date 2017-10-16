@@ -40,3 +40,4 @@ TestResult.xml
 
 #Remove logger text files
 **/*.txt
+*.pubxml
