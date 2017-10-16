@@ -24,9 +24,16 @@ namespace PetDemo.Proxy
                 return JsonConvert.DeserializeObject<Person[]>(jsonData);
             }
 
-            if (responseMessage.StatusCode == HttpStatusCode.RequestTimeout)
-                throw new TimeoutException("Getting people has timed out");
-            throw new ApplicationException("Something went wrong");
+            switch (responseMessage.StatusCode)
+            {
+                case HttpStatusCode.RequestTimeout:
+                case HttpStatusCode.GatewayTimeout:
+                    throw new TimeoutException("Getting people has timed out");
+                case HttpStatusCode.NotFound:
+                    throw new InvalidOperationException("The given resource does not exist");
+                default:
+                    throw new ApplicationException("Something went wrong");
+            }
         }
 
         public Person[] GetPeople()
