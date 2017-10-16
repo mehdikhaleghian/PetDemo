@@ -1,11 +1,12 @@
 ﻿using System.Linq;
 using PetDemo.Model;
 using PetDemo.Model.Enums;
+using PetDemo.Web.ModelMappers.Inerfaces;
 using PetDemo.Web.Models;
 
 namespace PetDemo.Web.ModelMappers
 {
-    public class CatViewModelMapper
+    public class CatViewModelMapper : ICatViewModelMapper
     {
         public CatViewModel Map(Person[] people)
         {

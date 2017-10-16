@@ -7,6 +7,7 @@ using Microsoft.Extensions.Logging;
 using PetDemo.Proxy;
 using PetDemo.Proxy.Interfaces;
 using PetDemo.Web.ModelMappers;
+using PetDemo.Web.ModelMappers.Inerfaces;
 using Serilog;
 
 namespace PetDemo.Web
@@ -26,7 +27,7 @@ namespace PetDemo.Web
             services.AddHttpClient(Configuration["aglWebApiBaseAddress"]);
             services.AddScoped<IHttpHandler, HttpHandler>();
             services.AddScoped<IPeopleManager, PeopleManager>();
-            services.AddScoped<CatViewModelMapper>();
+            services.AddScoped<ICatViewModelMapper, CatViewModelMapper>();
             services.AddMvc();
         }
 

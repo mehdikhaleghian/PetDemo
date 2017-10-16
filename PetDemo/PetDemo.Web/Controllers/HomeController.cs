@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using PetDemo.Proxy.Interfaces;
-using PetDemo.Web.ModelMappers;
+using PetDemo.Web.ModelMappers.Inerfaces;
 using PetDemo.Web.Models;
 
 namespace PetDemo.Web.Controllers
@@ -12,10 +12,10 @@ namespace PetDemo.Web.Controllers
     public class HomeController : Controller
     {
         private readonly IPeopleManager _peopleManager;
-        private readonly CatViewModelMapper _catMapper;
+        private readonly ICatViewModelMapper _catMapper;
         private readonly ILogger _logger;
 
-        public HomeController(IPeopleManager peopleManager, CatViewModelMapper catMapper, ILogger<HomeController> logger)
+        public HomeController(IPeopleManager peopleManager, ICatViewModelMapper catMapper, ILogger<HomeController> logger)
         {
             _peopleManager = peopleManager;
             _catMapper = catMapper;
