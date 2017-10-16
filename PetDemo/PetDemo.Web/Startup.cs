@@ -1,10 +1,13 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using System.IO;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using PetDemo.Proxy;
 using PetDemo.Proxy.Interfaces;
 using PetDemo.Web.ModelMappers;
+using Serilog;
 
 namespace PetDemo.Web
 {
@@ -28,7 +31,7 @@ namespace PetDemo.Web
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             if (env.IsDevelopment())
             {
@@ -41,6 +44,14 @@ namespace PetDemo.Web
             }
 
             app.UseStaticFiles();
+
+            //Serilog
+            Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Information()
+                .WriteTo.RollingFile(Path.Combine(env.ContentRootPath, "PetDemo-{Date}.txt"))
+                .CreateLogger();
+
+            loggerFactory.AddSerilog();
 
             app.UseMvc(routes =>
             {
