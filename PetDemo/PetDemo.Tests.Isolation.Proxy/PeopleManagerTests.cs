@@ -26,13 +26,35 @@ namespace PetDemo.Tests.Isolation.Proxy
         }
 
         [Test]
-        public void GetPeople_Should_Return_The_List_Of_People_Correctly()
+        public void GetPeople_Should_Not_Return_Null_When_HttpHandler_Returns_OK_Response()
         {
             SetupHttpHandler(HttpStatusCode.OK);
             var people = _sut.GetPeople();
             people.Should().NotBeNull();
+        }
+
+        [Test]
+        public void GetPeople_Should_Return_The_Correct_Number_Of_Results_Which_Is_Retrieved_From_API()
+        {
+            SetupHttpHandler(HttpStatusCode.OK);
+            var people = _sut.GetPeople();
             people.Length.Should().Be(6);
+        }
+
+        [Test]
+        public void GetPeople_Should_Return_The_Count_Of_Pets_Correctly()
+        {
+            SetupHttpHandler(HttpStatusCode.OK);
+            var people = _sut.GetPeople();
             people.First(x => x.Name == "Alice").Pets.Count().Should().Be(2);
+            people.First(x => x.Name == "Steve").Pets.Should().BeNull();
+        }
+
+        [Test]
+        public void GetPeople_Should_Return_Null_When_Pets_Is_Set_As_Null()
+        {
+            SetupHttpHandler(HttpStatusCode.OK);
+            var people = _sut.GetPeople();
             people.First(x => x.Name == "Steve").Pets.Should().BeNull();
         }
 
@@ -45,6 +67,10 @@ namespace PetDemo.Tests.Isolation.Proxy
                 .Should().Be(1);
         }
 
+        /// <summary>
+        /// This method sets up the IHttpHandler with the specified http status code and results from the test json file
+        /// </summary>
+        /// <param name="statusCode">the status code returned by the calling the handler</param>
         private void SetupHttpHandler(HttpStatusCode statusCode)
         {
 
