@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using PetDemo.Proxy;
 using PetDemo.Proxy.Interfaces;
+using PetDemo.Web.ModelMappers;
 
 namespace PetDemo.Web
 {
@@ -20,8 +21,9 @@ namespace PetDemo.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddHttpClient(Configuration["aglWebApiBaseAddress"]);
-            services.AddTransient<IHttpHandler, HttpHandler>();
-            services.AddTransient<IPeopleManager, PeopleManager>();
+            services.AddScoped<IHttpHandler, HttpHandler>();
+            services.AddScoped<IPeopleManager, PeopleManager>();
+            services.AddScoped<PeopleViewModelMapper>();
             services.AddMvc();
         }
 
