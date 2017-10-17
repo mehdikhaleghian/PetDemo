@@ -13,13 +13,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{23991C94
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integration", "Integration", "{895CE695-0C48-4993-B81B-17FC9DD7D1EB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PetDemo.Tests.Integration.Proxy", "PetDemo.IntegrationTests.Proxy\PetDemo.Tests.Integration.Proxy.csproj", "{EBF69A01-1004-44E9-B6FA-E5D6A56F83ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PetDemo.Tests.Integration.Proxy", "PetDemo.Tests.Integration.Proxy\PetDemo.Tests.Integration.Proxy.csproj", "{EBF69A01-1004-44E9-B6FA-E5D6A56F83ED}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PetDemo.Tests.Common", "PetDemo.Tests.Common\PetDemo.Tests.Common.csproj", "{AD753823-0E2A-4A1E-A1A5-9AB297F1E32C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Isolation", "Isolation", "{ED7F37F6-8289-43A9-B913-C0629E776AD5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PetDemo.Tests.Isolation.Service", "PetDemo.Tests.Isolation.Proxy\PetDemo.Tests.Isolation.Service.csproj", "{D97DB2C0-CED2-41D5-974A-6AC3C53C144C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PetDemo.Tests.Isolation.Service", "PetDemo.Tests.Isolation.Service\PetDemo.Tests.Isolation.Service.csproj", "{D97DB2C0-CED2-41D5-974A-6AC3C53C144C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PetDemo.Tests.Isolation.Web", "PetDemo.Tests.Isolation.Web\PetDemo.Tests.Isolation.Web.csproj", "{CB9ABC94-F2AF-4671-95F6-8C3AF92AC3EC}"
 EndProject

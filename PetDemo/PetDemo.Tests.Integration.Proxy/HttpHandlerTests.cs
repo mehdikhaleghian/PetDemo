@@ -1,11 +1,12 @@
-using System;
+﻿using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using FluentAssert;
+using FluentAssertions;
 using NUnit.Framework;
 using PetDemo.Proxy;
+using PetDemo.Tests.Common;
 
-namespace PetDemo.IntegrationTests.Proxy
+namespace PetDemo.Tests.Integration.Proxy
 {
     [TestFixture]
     public class HttpHandlerTests
@@ -20,11 +21,14 @@ namespace PetDemo.IntegrationTests.Proxy
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             _sut = new HttpHandler(client);
         }
+
         [Test]
-        public void GetAsync_Should_Return_Expetected_Json_Result()
+        public void GetAsync_Should_Return_Expected_JsonString()
         {
-            var jsonContent = _sut.GetAsync("people").Result.Content.ReadAsStringAsync().Result;
-            jsonContent.ShouldBeEqualTo("");
+            var expected = EmbeddedResourceReader.ReadAsJsonString(Resources.PeopleJson);
+            var t = _sut.GetAsync("people").Result.Content.GetType();
+            var actual = _sut.GetAsync("people").Result.Content.ReadAsStringAsync().Result;
+            actual.ShouldBeEquivalentTo(expected);
         }
     }
 }

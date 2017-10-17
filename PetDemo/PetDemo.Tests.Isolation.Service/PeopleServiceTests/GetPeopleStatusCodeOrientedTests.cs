@@ -5,7 +5,7 @@ using FluentAssertions;
 using NUnit.Framework;
 using PetDemo.Tests.Common;
 
-namespace PetDemo.Tests.Isolation.Service.PeopleManagerTests
+namespace PetDemo.Tests.Isolation.Service.PeopleServiceTests
 {
     public class GetPeopleStatusCodeOrientedTests : PeopleServiceTestsBase
     {

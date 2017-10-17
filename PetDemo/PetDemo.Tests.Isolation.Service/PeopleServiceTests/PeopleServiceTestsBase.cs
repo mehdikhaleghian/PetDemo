@@ -7,7 +7,7 @@ using PetDemo.Proxy.Interfaces;
 using PetDemo.Service;
 using PetDemo.Tests.Common;
 
-namespace PetDemo.Tests.Isolation.Service.PeopleManagerTests
+namespace PetDemo.Tests.Isolation.Service.PeopleServiceTests
 {
     [TestFixture]
     public class PeopleServiceTestsBase
