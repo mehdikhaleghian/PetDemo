@@ -3,7 +3,7 @@ using System.Reflection;
 
 namespace PetDemo.Tests.Common
 {
-    public static class ResourceReader
+    public static class EmbeddedResourceReader
     {
         public static string ReadAsJsonString(string resourceName)
         {

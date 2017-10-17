@@ -1,0 +1,17 @@
+﻿[
+  {
+    "FamilyName": "Bob",
+    "sex": "Male",
+    "age": 23,
+    "animals": [
+      {
+        "name": "Garfield",
+        "type": "Cat"
+      },
+      {
+        "name": "Fido",
+        "type": "Dog"
+      }
+    ]
+  }
+]

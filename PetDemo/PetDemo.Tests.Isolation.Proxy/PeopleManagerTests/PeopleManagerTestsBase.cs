@@ -26,10 +26,10 @@ namespace PetDemo.Tests.Isolation.Proxy.PeopleManagerTests
         /// This method sets up the IHttpHandler with the specified http status code and results from the test json file
         /// </summary>
         /// <param name="statusCode">the status code returned by the calling the handler</param>
-        protected void SetupHttpHandler(HttpStatusCode statusCode)
+        /// <param name="resourceName">the resource name from ResourceNames collection in PetDemo.Tests.Common.Resources</param>
+        protected void SetupHttpHandler(HttpStatusCode statusCode, string resourceName)
         {
-
-            var testContent = ResourceReader.ReadAsJsonString(Resources.PeopleJson);
+            var testContent = EmbeddedResourceReader.ReadAsJsonString(resourceName);
             var responseMessage = Task.FromResult(new HttpResponseMessage
             {
                 StatusCode = statusCode,

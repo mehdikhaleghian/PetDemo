@@ -5,10 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\InvalidData.json" />
     <None Remove="Resources\People.json" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Resources\InvalidData.json" />
     <EmbeddedResource Include="Resources\People.json" />
   </ItemGroup>
 

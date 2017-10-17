@@ -25,7 +25,7 @@ namespace PetDemo.Tests.Integration.Proxy
         [Test]
         public void GetAsync_Should_Return_Expected_JsonString()
         {
-            var expected = ResourceReader.ReadAsJsonString(Resources.PeopleJson);
+            var expected = EmbeddedResourceReader.ReadAsJsonString(Resources.PeopleJson);
             var t = _sut.GetAsync("people").Result.Content.GetType();
             var actual = _sut.GetAsync("people").Result.Content.ReadAsStringAsync().Result;
             actual.ShouldBeEquivalentTo(expected);

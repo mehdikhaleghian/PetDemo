@@ -3,6 +3,7 @@ using System.Linq;
 using System.Net;
 using FluentAssertions;
 using NUnit.Framework;
+using PetDemo.Tests.Common;
 
 namespace PetDemo.Tests.Isolation.Proxy.PeopleManagerTests
 {
@@ -11,7 +12,7 @@ namespace PetDemo.Tests.Isolation.Proxy.PeopleManagerTests
         [Test]
         public void GetPeople_Should_Throw_TimeoutException_If_Getting_People_RequestTimesout()
         {
-            SetupHttpHandler(HttpStatusCode.RequestTimeout);
+            SetupHttpHandler(HttpStatusCode.RequestTimeout, Resources.PeopleJson);
             var aggregateException = Assert.Throws<AggregateException>(() => Sut.GetPeople());
             aggregateException.InnerExceptions.Count(x => x.GetType() == typeof(TimeoutException))
                 .Should().Be(1);
@@ -20,7 +21,7 @@ namespace PetDemo.Tests.Isolation.Proxy.PeopleManagerTests
         [Test]
         public void GetPeople_Should_Throw_TimeoutException_If_Getting_People_GateWayTimesout()
         {
-            SetupHttpHandler(HttpStatusCode.GatewayTimeout);
+            SetupHttpHandler(HttpStatusCode.GatewayTimeout, Resources.PeopleJson);
             var aggregateException = Assert.Throws<AggregateException>(() => Sut.GetPeople());
             aggregateException.InnerExceptions.Count(x => x.GetType() == typeof(TimeoutException))
                 .Should().Be(1);
@@ -29,7 +30,7 @@ namespace PetDemo.Tests.Isolation.Proxy.PeopleManagerTests
         [Test]
         public void GetPeople_Should_Throw_InvalidOperationException_If_Getting_People_Returns_404()
         {
-            SetupHttpHandler(HttpStatusCode.NotFound);
+            SetupHttpHandler(HttpStatusCode.NotFound, Resources.PeopleJson);
             var aggregateException = Assert.Throws<AggregateException>(() => Sut.GetPeople());
             aggregateException.InnerExceptions.Count(x => x.GetType() == typeof(InvalidOperationException))
                 .Should().Be(1);
@@ -48,7 +49,7 @@ namespace PetDemo.Tests.Isolation.Proxy.PeopleManagerTests
         [TestCase(HttpStatusCode.Redirect)]
         public void GetPeople_Should_Throw_ApplicationException_If_Getting_People_Returns_Status_Code(HttpStatusCode statusCode)
         {
-            SetupHttpHandler(statusCode);
+            SetupHttpHandler(statusCode, Resources.PeopleJson);
             var aggregateException = Assert.Throws<AggregateException>(() => Sut.GetPeople());
             aggregateException.InnerExceptions.Count(x => x.GetType() == typeof(ApplicationException))
                 .Should().Be(1);
