@@ -23,7 +23,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PetDemo.Tests.Isolation.Ser
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PetDemo.Tests.Isolation.Web", "PetDemo.Tests.Isolation.Web\PetDemo.Tests.Isolation.Web.csproj", "{CB9ABC94-F2AF-4671-95F6-8C3AF92AC3EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetDemo.Service", "PetDemo.Service\PetDemo.Service.csproj", "{9A298E67-51C0-47AF-8807-292DBEB9CA9A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PetDemo.Service", "PetDemo.Service\PetDemo.Service.csproj", "{9A298E67-51C0-47AF-8807-292DBEB9CA9A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

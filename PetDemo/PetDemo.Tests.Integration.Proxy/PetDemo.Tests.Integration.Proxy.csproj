@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\PetDemo.Proxy\PetDemo.Proxy.csproj" />
+    <ProjectReference Include="..\PetDemo.Service\PetDemo.Service.csproj" />
     <ProjectReference Include="..\PetDemo.Tests.Common\PetDemo.Tests.Common.csproj" />
   </ItemGroup>
 

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Net;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
 using PetDemo.Model;
 using PetDemo.Proxy.Interfaces;
 using PetDemo.Service.Interfaces;
@@ -11,10 +10,12 @@ namespace PetDemo.Service
     public class PeopleService : IPeopleService
     {
         private readonly IHttpHandler _httpHandler;
+        private readonly IJsonDeserializer<Person[]> _deserializer;
 
-        public PeopleService(IHttpHandler httpHandler)
+        public PeopleService(IHttpHandler httpHandler, IJsonDeserializer<Person[]> deserializer)
         {
             _httpHandler = httpHandler;
+            _deserializer = deserializer;
         }
         public async Task<Person[]> GetPeopleAsync()
         {
@@ -22,7 +23,7 @@ namespace PetDemo.Service
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = responseMessage.Content.ReadAsStringAsync().Result;
-                return JsonConvert.DeserializeObject<Person[]>(jsonData);
+                return _deserializer.Deserialize(jsonData);
             }
 
             switch (responseMessage.StatusCode)

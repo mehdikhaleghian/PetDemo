@@ -27,6 +27,7 @@ namespace PetDemo.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddHttpClient(Configuration["aglWebApiBaseAddress"]);
+            services.AddScoped(typeof(IJsonDeserializer<>), typeof(JsonDeserializer<>));
             services.AddScoped<IHttpHandler, HttpHandler>();
             services.AddScoped<IPeopleService, PeopleService>();
             services.AddScoped<ICatViewModelMapper, CatViewModelMapper>();

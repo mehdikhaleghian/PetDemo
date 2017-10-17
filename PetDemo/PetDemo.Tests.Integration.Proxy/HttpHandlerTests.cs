@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using FluentAssertions;
 using NUnit.Framework;
+using PetDemo.Model;
 using PetDemo.Proxy;
-using PetDemo.Tests.Common;
+using PetDemo.Service;
 
 namespace PetDemo.Tests.Integration.Proxy
 {
@@ -23,12 +23,13 @@ namespace PetDemo.Tests.Integration.Proxy
         }
 
         [Test]
-        public void GetAsync_Should_Return_Expected_JsonString()
+        public void GetAsync_Should_Return_Schema_Valid_JsonString()
         {
-            var expected = EmbeddedResourceReader.ReadAsJsonString(Resources.PeopleJson);
-            var t = _sut.GetAsync("people").Result.Content.GetType();
             var actual = _sut.GetAsync("people").Result.Content.ReadAsStringAsync().Result;
-            actual.ShouldBeEquivalentTo(expected);
+
+            var jsonDeseializer = new JsonDeserializer<Person[]>();
+            //json convertion should not throw any exception as internally JsonDeserializer custom code checks for valid schema
+            Assert.DoesNotThrow(()=> jsonDeseializer.Deserialize(actual));
         }
     }
 }

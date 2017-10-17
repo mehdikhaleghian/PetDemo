@@ -3,8 +3,10 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Moq;
 using NUnit.Framework;
+using PetDemo.Model;
 using PetDemo.Proxy.Interfaces;
 using PetDemo.Service;
+using PetDemo.Service.Interfaces;
 using PetDemo.Tests.Common;
 
 namespace PetDemo.Tests.Isolation.Service.PeopleServiceTests
@@ -13,13 +15,15 @@ namespace PetDemo.Tests.Isolation.Service.PeopleServiceTests
     public class PeopleServiceTestsBase
     {
         protected Mock<IHttpHandler> MockHttpHandler;
+        protected IJsonDeserializer<Person[]> JsonDeserializer;
         protected PeopleService Sut;
 
         [SetUp]
         public void Setup()
         {
+            JsonDeserializer = new JsonDeserializer<Person[]>();
             MockHttpHandler = new Mock<IHttpHandler>();
-            Sut = new PeopleService(MockHttpHandler.Object);
+            Sut = new PeopleService(MockHttpHandler.Object, JsonDeserializer);
         }
 
         /// <summary>

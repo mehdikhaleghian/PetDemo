@@ -40,14 +40,5 @@ namespace PetDemo.Tests.Isolation.Service.PeopleServiceTests
             var people = Sut.GetPeople();
             people.First(x => x.Name == "Steve").Pets.Should().BeNull();
         }
-
-        //TODO Mehdi: develop this test further
-        [Test]
-        public void GetPeople_When_Content_Cannot_Be_Deserialized()
-        {
-            SetupHttpHandler(HttpStatusCode.OK, Resources.InvalidJson);
-            var people = Sut.GetPeople();
-            people.First(x => x.Name == "Steve").Pets.Should().BeNull();
-        }
     }
 }
