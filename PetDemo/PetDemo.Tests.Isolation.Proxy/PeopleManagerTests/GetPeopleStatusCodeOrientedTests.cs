@@ -5,9 +5,9 @@ using FluentAssertions;
 using NUnit.Framework;
 using PetDemo.Tests.Common;
 
-namespace PetDemo.Tests.Isolation.Proxy.PeopleManagerTests
+namespace PetDemo.Tests.Isolation.Service.PeopleManagerTests
 {
-    public class GetPeopleStatusCodeOrientedTests : PeopleManagerTestsBase
+    public class GetPeopleStatusCodeOrientedTests : PeopleServiceTestsBase
     {
         [Test]
         public void GetPeople_Should_Throw_TimeoutException_If_Getting_People_RequestTimesout()

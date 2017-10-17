@@ -19,9 +19,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PetDemo.Tests.Common", "Pet
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Isolation", "Isolation", "{ED7F37F6-8289-43A9-B913-C0629E776AD5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PetDemo.Tests.Isolation.Proxy", "PetDemo.Tests.Isolation.Proxy\PetDemo.Tests.Isolation.Proxy.csproj", "{D97DB2C0-CED2-41D5-974A-6AC3C53C144C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PetDemo.Tests.Isolation.Service", "PetDemo.Tests.Isolation.Proxy\PetDemo.Tests.Isolation.Service.csproj", "{D97DB2C0-CED2-41D5-974A-6AC3C53C144C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetDemo.Tests.Isolation.Web", "PetDemo.Tests.Isolation.Web\PetDemo.Tests.Isolation.Web.csproj", "{CB9ABC94-F2AF-4671-95F6-8C3AF92AC3EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PetDemo.Tests.Isolation.Web", "PetDemo.Tests.Isolation.Web\PetDemo.Tests.Isolation.Web.csproj", "{CB9ABC94-F2AF-4671-95F6-8C3AF92AC3EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetDemo.Service", "PetDemo.Service\PetDemo.Service.csproj", "{9A298E67-51C0-47AF-8807-292DBEB9CA9A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{CB9ABC94-F2AF-4671-95F6-8C3AF92AC3EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CB9ABC94-F2AF-4671-95F6-8C3AF92AC3EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CB9ABC94-F2AF-4671-95F6-8C3AF92AC3EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A298E67-51C0-47AF-8807-292DBEB9CA9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A298E67-51C0-47AF-8807-292DBEB9CA9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A298E67-51C0-47AF-8807-292DBEB9CA9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A298E67-51C0-47AF-8807-292DBEB9CA9A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

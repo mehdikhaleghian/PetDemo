@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\PetDemo.Proxy\PetDemo.Proxy.csproj" />
+    <ProjectReference Include="..\PetDemo.Service\PetDemo.Service.csproj" />
   </ItemGroup>
 
 </Project>

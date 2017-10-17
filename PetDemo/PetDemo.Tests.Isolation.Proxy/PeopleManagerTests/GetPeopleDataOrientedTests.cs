@@ -4,9 +4,9 @@ using FluentAssertions;
 using NUnit.Framework;
 using PetDemo.Tests.Common;
 
-namespace PetDemo.Tests.Isolation.Proxy.PeopleManagerTests
+namespace PetDemo.Tests.Isolation.Service.PeopleManagerTests
 {
-    public class GetPeopleDataOrientedTests : PeopleManagerTestsBase
+    public class GetPeopleDataOrientedTests : PeopleServiceTestsBase
     {
         [Test]
         public void GetPeople_Should_Not_Return_Null_When_HttpHandler_Returns_OK_Response()

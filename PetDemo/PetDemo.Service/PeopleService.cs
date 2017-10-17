@@ -4,14 +4,15 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using PetDemo.Model;
 using PetDemo.Proxy.Interfaces;
+using PetDemo.Service.Interfaces;
 
-namespace PetDemo.Proxy
+namespace PetDemo.Service
 {
-    public class PeopleManager : IPeopleManager
+    public class PeopleService : IPeopleService
     {
         private readonly IHttpHandler _httpHandler;
 
-        public PeopleManager(IHttpHandler httpHandler)
+        public PeopleService(IHttpHandler httpHandler)
         {
             _httpHandler = httpHandler;
         }

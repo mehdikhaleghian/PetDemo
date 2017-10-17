@@ -1,9 +1,9 @@
 ﻿using System.Threading.Tasks;
 using PetDemo.Model;
 
-namespace PetDemo.Proxy.Interfaces
+namespace PetDemo.Service.Interfaces
 {
-    public interface IPeopleManager
+    public interface IPeopleService
     {
         Task<Person[]> GetPeopleAsync();
         Person[] GetPeople();

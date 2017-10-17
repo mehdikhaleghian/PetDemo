@@ -3,23 +3,23 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Moq;
 using NUnit.Framework;
-using PetDemo.Proxy;
 using PetDemo.Proxy.Interfaces;
+using PetDemo.Service;
 using PetDemo.Tests.Common;
 
-namespace PetDemo.Tests.Isolation.Proxy.PeopleManagerTests
+namespace PetDemo.Tests.Isolation.Service.PeopleManagerTests
 {
     [TestFixture]
-    public class PeopleManagerTestsBase
+    public class PeopleServiceTestsBase
     {
         protected Mock<IHttpHandler> MockHttpHandler;
-        protected PeopleManager Sut;
+        protected PeopleService Sut;
 
         [SetUp]
         public void Setup()
         {
             MockHttpHandler = new Mock<IHttpHandler>();
-            Sut = new PeopleManager(MockHttpHandler.Object);
+            Sut = new PeopleService(MockHttpHandler.Object);
         }
 
         /// <summary>

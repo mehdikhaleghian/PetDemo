@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using PetDemo.Proxy.Interfaces;
+using PetDemo.Service.Interfaces;
 using PetDemo.Web.ModelMappers.Inerfaces;
 using PetDemo.Web.Models;
 
@@ -11,13 +11,13 @@ namespace PetDemo.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IPeopleManager _peopleManager;
+        private readonly IPeopleService _peopleService;
         private readonly ICatViewModelMapper _catMapper;
         private readonly ILogger _logger;
 
-        public HomeController(IPeopleManager peopleManager, ICatViewModelMapper catMapper, ILogger<HomeController> logger)
+        public HomeController(IPeopleService peopleService, ICatViewModelMapper catMapper, ILogger<HomeController> logger)
         {
-            _peopleManager = peopleManager;
+            _peopleService = peopleService;
             _catMapper = catMapper;
             _logger = logger;
         }
@@ -36,7 +36,7 @@ namespace PetDemo.Web.Controllers
             try
             {
                 _logger.LogInformation("Start reading cats from the hosted json resource");
-                var people = await _peopleManager.GetPeopleAsync();
+                var people = await _peopleService.GetPeopleAsync();
                 var viewModel = _catMapper.Map(people);
                 return View(viewModel);
             }
