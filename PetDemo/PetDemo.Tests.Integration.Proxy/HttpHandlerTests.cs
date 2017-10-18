@@ -23,7 +23,7 @@ namespace PetDemo.Tests.Integration.Proxy
         }
 
         [Test]
-        public void GetAsync_Should_Return_Schema_Valid_JsonString()
+        public void GetAsync_Should_Return_JsonString_With_Valid_Schema()
         {
             var actual = _sut.GetAsync("people").Result.Content.ReadAsStringAsync().Result;
 
