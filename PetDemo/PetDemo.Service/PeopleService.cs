@@ -22,7 +22,7 @@ namespace PetDemo.Service
             var responseMessage = await _httpHandler.GetAsync("people");
             if (responseMessage.IsSuccessStatusCode)
             {
-                var jsonData = responseMessage.Content.ReadAsStringAsync().Result;
+                var jsonData = await responseMessage.Content.ReadAsStringAsync();
                 return _deserializer.Deserialize(jsonData);
             }
 
