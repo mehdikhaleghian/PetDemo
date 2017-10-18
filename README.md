@@ -14,8 +14,8 @@ The code is intended to be maintainable, readable, easy to scale with an accepta
 * Mewtonsoft.Json 10.0.3
 * Mewtonsoft.Json.Schema 3.0.4
 * HttpClient for calling the API
-* NUnit3 3.8.1 (testing framework)
-* Fluen Assertions 4.19.4 (enhance testing experience with lots of assertion extension methods)
+* NUnit 3.8.1 (testing framework)
+* Fluent Assertions 4.19.4 (enhance testing experience with lots of assertion extension methods)
 * Moq 4.7.142 (mocking framework)
 * Serilog 2.5.0 (for structured logging)
 
