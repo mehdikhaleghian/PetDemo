@@ -2,13 +2,14 @@
 Creating a code example to test a json api hosted on Azure from AGL
 
 ## Overall architecture
-This is ASP.Net MVC Core Application with a very simple view, presenting a button to get the list of cats from API
-There is not persistence layer as the focus is on providing a code base with good practices of software development in
-Calling the API with a maintainable and testable code
+This is ASP.Net MVC Core Application with a very simple view; presenting a button to get the list of cats from a hosted JSON API by AGL.
+There is not any persistence layer as the focus is on providing a code base with good practices of software development like SOLID.
+The code is intended to be maintainable, readable, easy to scale with an acceptable level of test coverage.
+
 
 
 ## Technology Stack
-# ASP.Net MVC Core 2
+* ASP.Net MVC Core 2
 * .Net Framework Core 2
 * Mewtonsoft.Json 10.0.3
 * Mewtonsoft.Json.Schema 3.0.4
