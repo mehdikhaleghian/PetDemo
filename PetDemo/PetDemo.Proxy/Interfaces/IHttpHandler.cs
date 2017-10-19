@@ -6,6 +6,5 @@ namespace PetDemo.Proxy.Interfaces
     public interface IHttpHandler
     {
         Task<HttpResponseMessage> GetAsync(string url);
-        HttpResponseMessage Get(string url);
     }
 }

@@ -37,10 +37,5 @@ namespace PetDemo.Service
                     throw new ApplicationException("Something went wrong");
             }
         }
-
-        public Person[] GetPeople()
-        {
-            return GetPeopleAsync().Result;
-        }
     }
 }
