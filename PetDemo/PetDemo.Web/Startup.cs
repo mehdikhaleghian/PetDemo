@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Net.Http;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -35,7 +36,12 @@ namespace PetDemo.Web
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(
+            IApplicationBuilder app,
+            IHostingEnvironment env,
+            ILoggerFactory loggerFactory,
+            IApplicationLifetime applicationLifetime,
+            HttpClient httpClient)
         {
             if (env.IsDevelopment())
             {
@@ -56,6 +62,9 @@ namespace PetDemo.Web
                 .CreateLogger();
 
             loggerFactory.AddSerilog();
+
+            //dispose of httpClient which is registered as signleton when application is stopping
+            applicationLifetime.ApplicationStopping.Register(httpClient.Dispose);
 
             app.UseMvc(routes =>
             {
